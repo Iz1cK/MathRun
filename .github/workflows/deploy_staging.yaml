@@ -20,8 +20,10 @@ jobs:
         with:
           version: v0.2.7
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build with Rojo
         run: rojo build -o place.rbxl
+        
       - name: Deploy to Roblox
         run: rbxcloud experience publish -f place.rbxl -p 305393895 -u 116895665 -t published -a ${{ secrets.ROBLOX_KEY }}
 
