@@ -1,9 +1,9 @@
-name: Deploy to Staging
+name: Deploy to Prod
 
 on:
   push:
     branches:
-    - main
+    - prod
 
 
 jobs:
@@ -23,8 +23,8 @@ jobs:
 
       - name: Build with Rojo
         run: rojo build -o place.rbxl
-
+        
       - name: Deploy to Roblox
-        run: rbxcloud experience publish -f place.rbxl -p 305393895 -u 116895665 -t published -a ${{ secrets.ROBLOX_KEY }}
+        run: rbxcloud experience publish -f place.rbxl -p 14823168927 -u 5108142293 -t published -a ${{ secrets.ROBLOX_PROD_KEY }}
 
     
