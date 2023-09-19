@@ -1,0 +1,19 @@
+{
+  "[luau]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      120
+    ]
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      120
+    ]
+  },
+  "luau-lsp.sourcemap.enabled": true,
+  "luau-lsp.types.roblox": true,
+  "luau-lsp.sourcemap.rojoProjectFile": "default.project.json",
+}
