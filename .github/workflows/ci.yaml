@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Aftman
-        uses: Roblox/setup-aftman@v0.4.1
+        uses: ok-nick/setup-aftman@v0.4.1
         with:
           version: "^0.2.7"
           token: ${{ secrets.GITHUB_TOKEN }}
