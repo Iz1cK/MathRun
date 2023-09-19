@@ -20,7 +20,7 @@ jobs:
       - name: Install Aftman
         uses: ok-nick/setup-aftman@v0.4.1
         with:
-          version: "^0.2.7"
+          version: v0.2.7
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Linting check
