@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
-      - uses: Roblox/setup-aftman@v0.4.1
       - name: Install Aftman
-      - with:
+        uses: Roblox/setup-aftman@v0.4.1
+        with:
           version: "^0.2.7"
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Lint
-      - run: |
+        run: |
           selene .
   
   style:
@@ -32,8 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v3
-      - uses: JohnnyMorganz/stylua-action@v3
+        uses: actions/checkout@v3
+        uses: JohnnyMorganz/stylua-action@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --check .
