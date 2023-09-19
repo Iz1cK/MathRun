@@ -1,3 +1,3 @@
 print("hello world, im server")
 
-local function Hello() end
+local function _Hello() end
