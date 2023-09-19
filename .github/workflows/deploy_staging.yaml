@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+
+
+jobs:
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.1
+        with:
+          version: v0.2.7
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build with Rojo
+        run: rojo build -o place.rbxl
+      - name: Deploy to Roblox
+        run: rbxcloud experience publish -f place.rbxl -p 305393895 -u 116895665 -t published -a ${{ secrets.ROBLOX_KEY }}
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.1
+        with:
+          version: v0.2.7
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Linting check
+        run: |
+          selene .
+  
+  style:
+    name: Styling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Formatting check
+        uses: JohnnyMorganz/stylua-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: "0.18.2"
+          args: --check .
+
+    
