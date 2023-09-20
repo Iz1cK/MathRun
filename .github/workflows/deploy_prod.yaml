@@ -24,6 +24,12 @@ jobs:
       - name: Install Wally Dependencies
         run: wally install
 
+      - name: Rojo Setup
+        run: rojo sourcemap -o sourcemap.json
+
+      - name: Wally setup types
+        run: wally-package-types --sourcemap sourcemap.json Packages
+
       - name: Build with Rojo
         run: rojo build -o place.rbxl
         
