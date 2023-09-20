@@ -21,6 +21,9 @@ jobs:
           version: v0.2.7
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install Wally Dependencies
+        run: wally install
+
       - name: Build with Rojo
         run: rojo build -o place.rbxl
         
