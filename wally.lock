@@ -99,8 +99,8 @@ dependencies = [["Spawn", "red-blox/spawn@1.0.0"]]
 
 [[package]]
 name = "red-blox/fetch"
-version = "1.0.0"
-dependencies = [["Promise", "red-blox/promise@1.1.1"]]
+version = "2.0.0"
+dependencies = [["Future", "red-blox/future@1.0.0"]]
 
 [[package]]
 name = "red-blox/future"
@@ -111,11 +111,6 @@ dependencies = [["Spawn", "red-blox/spawn@1.0.0"]]
 name = "red-blox/guard"
 version = "1.0.0"
 dependencies = []
-
-[[package]]
-name = "red-blox/promise"
-version = "1.1.1"
-dependencies = [["Spawn", "red-blox/spawn@1.0.0"]]
 
 [[package]]
 name = "red-blox/ratelimit"
@@ -129,8 +124,8 @@ dependencies = [["Clock", "red-blox/clock@1.0.0"], ["Future", "red-blox/future@1
 
 [[package]]
 name = "red-blox/signal"
-version = "1.0.0"
-dependencies = [["Promise", "red-blox/promise@1.1.1"], ["Spawn", "red-blox/spawn@1.0.0"]]
+version = "2.0.1"
+dependencies = [["Spawn", "red-blox/spawn@1.0.0"]]
 
 [[package]]
 name = "red-blox/spawn"
@@ -138,6 +133,11 @@ version = "1.0.0"
 dependencies = []
 
 [[package]]
+name = "sleitnick/option"
+version = "1.0.4"
+dependencies = []
+
+[[package]]
 name = "win10/mathrun"
 version = "0.1.0"
-dependencies = [["Bin", "red-blox/bin@1.0.0"], ["Clock", "red-blox/clock@1.0.0"], ["Collection", "red-blox/collection@1.0.0"], ["Fetch", "red-blox/fetch@1.0.0"], ["Future", "red-blox/future@1.0.0"], ["Guard", "red-blox/guard@1.0.0"], ["Ratelimit", "red-blox/ratelimit@1.0.1"], ["React", "jsdotlua/react@17.0.2"], ["Red", "red-blox/red@2.0.0-rc.11"], ["Reflex", "littensy/reflex@4.2.0"], ["Sift", "csqrl/sift@0.0.8"], ["Signal", "red-blox/signal@1.0.0"], ["Spawn", "red-blox/spawn@1.0.0"]]
+dependencies = [["Bin", "red-blox/bin@1.0.0"], ["Clock", "red-blox/clock@1.0.0"], ["Collection", "red-blox/collection@1.0.0"], ["Fetch", "red-blox/fetch@2.0.0"], ["Future", "red-blox/future@1.0.0"], ["Guard", "red-blox/guard@1.0.0"], ["Option", "sleitnick/option@1.0.4"], ["Ratelimit", "red-blox/ratelimit@1.0.1"], ["React", "jsdotlua/react@17.0.2"], ["Red", "red-blox/red@2.0.0-rc.11"], ["Reflex", "littensy/reflex@4.2.0"], ["Sift", "csqrl/sift@0.0.8"], ["Signal", "red-blox/signal@2.0.1"], ["Spawn", "red-blox/spawn@1.0.0"]]

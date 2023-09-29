@@ -1,45 +1,33 @@
 --!strict
 --#region Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Score = require(script.Parent.score)
+local producer = require(script.Parent.RootProducer)
 --#endregion
 
 --#region Packages
+local Reflex = require(ReplicatedStorage.Packages.Reflex)
 --#endregion
 
 --#region Modules
 --#endregion
 
 --#region Variables
+local Players = game:GetService("Players")
 --#endregion
 
 --#region Functions
-local function generateGoodEquation()
-	local operand1 = math.random(1, 10) -- Generates a random number between 1 and 10
-	local operations = { "+", "*", "-", "/" }
-	local operation = operations[math.random(1, #operations)] -- Randomly selects an operation
-
-	-- local equation = `x {operation} {operand1}`
-
+local function generateGoodEquation(): (producer.Operation, number)
+	local operand1: number = math.random(10) -- Generates a random number between 1 and 10
+	local operations = {}
+	for _, op in pairs(producer.Operations) do
+		table.insert(operations, op)
+	end
+	local operation = operations[math.random(4)]
 	return operation, operand1
 end
 
-local function evaluateEquation(score: number, operation, operand1: number)
-	if operation == "+" then
-		return score + operand1
-	elseif operation == "-" then
-		return score - operand1
-	elseif operation == "*" then
-		return score * operand1
-	elseif operation == "/" then
-		-- Ensure that we don't divide by zero
-		return score / operand1
-	else
-		error("Unknown operation: " .. operation)
-	end
-end
-
 local function init()
+	local player = Players.LocalPlayer
 	for i = -160, -2048, -160 do
 		local debounce = false
 		for j = -25, 25, 50 do
@@ -54,7 +42,7 @@ local function init()
 
 			local textLabel = Instance.new("TextLabel")
 			local operation, operand1 = generateGoodEquation()
-			textLabel.Text = `x {operation} {operand1}`
+			textLabel.Text = `x {operation.sign} {operand1}`
 			textLabel.Size = UDim2.new(1, 0, 1, 0)
 			textLabel.Parent = surfaceGUI
 
@@ -68,9 +56,7 @@ local function init()
 				end
 				if hit.Parent:FindFirstChild("Humanoid") then
 					print("touched gate")
-					local correctAnswer = evaluateEquation(Score:getScore(), operation, operand1)
-					Score:setScore(correctAnswer)
-					print("score: " .. Score:getScore())
+					producer.rootProducer.updateScore(player.UserId, operand1, operation)
 					debounce = true
 				end
 			end)
